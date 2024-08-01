@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw6ygfj446v6i"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1njde"]
+[ext_resource type="PackedScene" uid="uid://bgdoo8tjd17bo" path="res://player/player.tscn" id="2_rjhxv"]
+[ext_resource type="PackedScene" uid="uid://khqiav7ahjc0" path="res://powerups/powerup.tscn" id="3_vbnvw"]
+
+[sub_resource type="Theme" id="Theme_djipc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_168xy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.101961, 1, 0.101961, 0.478431)
+border_blend = true
+
+[node name="Main" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(500, 1000)
+offset_right = 500.0
+offset_bottom = 1000.0
+theme = SubResource("Theme_djipc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_168xy")
+script = ExtResource("1_1njde")
+metadata/_edit_vertical_guides_ = [250.0]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "debug"
+
+[node name="Player" parent="." instance=ExtResource("2_rjhxv")]
+position = Vector2(250, 900)
+
+[node name="Bullet_speed_Powerup" parent="." instance=ExtResource("3_vbnvw")]
+position = Vector2(200, 650)
+powerup_type = 0
+boost_amount = 500
+
+[node name="Bullet_firerate_Powerup" parent="." instance=ExtResource("3_vbnvw")]
+position = Vector2(360, 460)
+
+[node name="Bullet_add_Powerup" parent="." instance=ExtResource("3_vbnvw")]
+position = Vector2(120, 350)
+powerup_type = 2
+
+[node name="Bullet_add_Powerup2" parent="." instance=ExtResource("3_vbnvw")]
+position = Vector2(370, 300)
+powerup_type = 2
+boost_amount = 2

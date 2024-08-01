@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgdoo8tjd17bo"]
+
+[ext_resource type="Texture2D" uid="uid://bv02vngs6uswv" path="res://player/ship.svg" id="1_atw54"]
+[ext_resource type="Script" path="res://player/player.gd" id="2_ip2h1"]
+[ext_resource type="PackedScene" uid="uid://cdf8f7i0gnqgo" path="res://bullets/bullet_spawner.tscn" id="3_tofto"]
+[ext_resource type="PackedScene" uid="uid://b2hxkxhlb6r6k" path="res://bullets/basic_bullet.tscn" id="4_iu4vv"]
+
+[node name="Player" type="Area2D" groups=["player"]]
+script = ExtResource("2_ip2h1")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_atw54")
+
+[node name="BulletSpawner" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(-10, 0)
+BulletScene = ExtResource("4_iu4vv")
+bullet_speed = 1510
+
+[node name="BulletSpawner2" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(10, 0)
+BulletScene = ExtResource("4_iu4vv")
+bullet_speed = 1510
+
+[node name="BulletSpawner3" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(40, 0)
+rotation = 0.0349066
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 1
+
+[node name="BulletSpawner5" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(80, 4.76837e-07)
+rotation = 0.0523599
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 2
+
+[node name="BulletSpawner4" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(-40, 1.42109e-13)
+rotation = -0.0349066
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 1
+
+[node name="BulletSpawner6" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(-80, 4.76837e-07)
+rotation = -0.0523599
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(20.8, -25, 22.4, -25, 80, -2.2, 80, 38, 77.6, 38, 13, 13.9, 1.2, 43, -3, 43, -3, 42.4, -13.4, 14, -14, 13.8, -80, 38.2, -80, -2.1, -26, -22.4, -4, -42.9, 1, -43)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false

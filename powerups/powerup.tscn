@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://khqiav7ahjc0"]
+
+[ext_resource type="Texture2D" uid="uid://d1yqkc22pqr3a" path="res://powerups/powerup.svg" id="1_m484i"]
+[ext_resource type="Script" path="res://powerups/powerup.gd" id="1_x87fd"]
+
+[node name="Powerup" type="Area2D"]
+script = ExtResource("1_x87fd")
+
+[node name="PowerupSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_m484i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(31, -1.9, 31, 3, 1.9, 31, -3, 31, -31, 3.7, -31, -3.7, -3, -30.8, 1.9, -31)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
