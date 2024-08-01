@@ -40,6 +40,7 @@ text = "debug"
 
 [node name="Player" parent="." instance=ExtResource("2_rjhxv")]
 position = Vector2(250, 900)
+speed = 200
 
 [node name="Bullet_speed_Powerup" parent="." instance=ExtResource("3_vbnvw")]
 position = Vector2(200, 650)
@@ -56,4 +57,3 @@ powerup_type = 2
 [node name="Bullet_add_Powerup2" parent="." instance=ExtResource("3_vbnvw")]
 position = Vector2(370, 300)
 powerup_type = 2
-boost_amount = 2

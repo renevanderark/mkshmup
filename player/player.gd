@@ -5,6 +5,7 @@ const MAX_X : float = 500
 const MAX_Y : float = 1000
 
 @export var speed : int = 200
+@export var bullet_spawn_unlock_level : int = 0
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("speed_up"):
@@ -36,7 +37,15 @@ func receive_powerup(type : PowerUp.PowerupType, amount : int):
 				# FIXME/TODO: change into a boost (so it can be temprorary)
 				bs.spawn_frame_frequency -= amount
 		PowerUp.PowerupType.BULLET_ADD:
-			for bs : BulletSpawner in find_children("*", "BulletSpawner"):
-				# FIXME/TODO: change into a boost (so it can be temprorary)
-				if bs.unlock_level == amount:
-					bs.disabled = false
+			bullet_spawn_unlock_level += amount
+			_unlock_bullet_spawners()
+
+
+func _unlock_bullet_spawners():
+	for bs : BulletSpawner in find_children("*", "BulletSpawner"):
+		if bs.unlock_level <= bullet_spawn_unlock_level:
+			bs.disabled = false
+
+
+func _ready():
+	_unlock_bullet_spawners()
