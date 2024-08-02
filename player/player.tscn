@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgdoo8tjd17bo"]
+[gd_scene load_steps=8 format=3 uid="uid://bgdoo8tjd17bo"]
 
 [ext_resource type="Texture2D" uid="uid://bv02vngs6uswv" path="res://player/images/ship.svg" id="2_77wsb"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_ip2h1"]
 [ext_resource type="PackedScene" uid="uid://cdf8f7i0gnqgo" path="res://bullets/bullet_spawner.tscn" id="3_tofto"]
 [ext_resource type="PackedScene" uid="uid://b2hxkxhlb6r6k" path="res://bullets/basic_bullet.tscn" id="4_iu4vv"]
+[ext_resource type="Texture2D" uid="uid://cjugslqg2a5sv" path="res://player/images/Core1.svg" id="5_ptpac"]
+[ext_resource type="Texture2D" uid="uid://cej2yud7nbfwd" path="res://player/images/Core2.svg" id="6_jo751"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1al7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ptpac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jo751")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource("2_ip2h1")
@@ -105,3 +121,13 @@ polygon = PackedVector2Array(20.8, -25, 22.4, -25, 80, -2.2, 80, 38, 77.6, 38, 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="PlayerCore" type="Area2D" parent="." groups=["player_core"]]
+position = Vector2(0, -10)
+
+[node name="CoreSprite" type="AnimatedSprite2D" parent="PlayerCore"]
+sprite_frames = SubResource("SpriteFrames_1al7i")
+frame_progress = 0.915554
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerCore"]
+polygon = PackedVector2Array(0, -4, 4, 0, 0, 4, -4, 0)

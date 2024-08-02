@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw6ygfj446v6i"]
+[gd_scene load_steps=8 format=3 uid="uid://dw6ygfj446v6i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1njde"]
 [ext_resource type="PackedScene" uid="uid://bgdoo8tjd17bo" path="res://player/player.tscn" id="2_rjhxv"]
@@ -16,6 +16,12 @@ border_width_bottom = 10
 border_color = Color(0.101961, 1, 0.101961, 0.478431)
 border_blend = true
 
+[sub_resource type="Curve2D" id="Curve2D_1mya0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -830, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
 [node name="Main" type="Panel"]
 clip_contents = true
 custom_minimum_size = Vector2(500, 1000)
@@ -27,7 +33,6 @@ script = ExtResource("1_1njde")
 metadata/_edit_vertical_guides_ = [250.0]
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,7 +73,17 @@ position = Vector2(150, 130)
 powerup_type = 2
 
 [node name="StrongShipNo1" parent="." instance=ExtResource("4_v5qer")]
-position = Vector2(380, 20)
+position = Vector2(650, 400)
+loop_path = true
+
+[node name="Path2D" parent="StrongShipNo1" index="2"]
+curve = SubResource("Curve2D_1mya0")
+
+[node name="PathFollow2D" parent="StrongShipNo1/Path2D" index="0"]
+position = Vector2(0, 0)
+rotation = 3.14159
 
 [node name="StrongShipNo2" parent="." instance=ExtResource("4_v5qer")]
-position = Vector2(90, 20)
+position = Vector2(250, 40)
+
+[editable path="StrongShipNo1"]

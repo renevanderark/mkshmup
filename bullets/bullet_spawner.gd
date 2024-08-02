@@ -4,7 +4,7 @@ extends Node2D
 const MAX_FRAME_COUNT = 120
 @export var BulletScene : PackedScene = null
 @export_range(1, MAX_FRAME_COUNT) var spawn_frame_frequency : int = 4
-@export_range(500, 5000) var bullet_speed = 500
+@export_range(50, 5000) var bullet_speed = 500
 @export var disabled : bool = false
 @export var unlock_level : int = 0
 

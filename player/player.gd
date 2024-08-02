@@ -6,6 +6,7 @@ const MAX_Y : float = 1000
 
 @export var speed : int = 200
 @export var bullet_spawn_unlock_level : int = 0
+@export var hp = 5
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("speed_up"):
@@ -49,3 +50,4 @@ func _unlock_bullet_spawners():
 
 func _ready():
 	_unlock_bullet_spawners()
+	$PlayerCore/CoreSprite.play("default")

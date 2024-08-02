@@ -8,12 +8,12 @@ func _process(_delta: float) -> void:
 			bs_info += "    " + bs.str_info() + "\n"
 
 	$Label.text = (
-		"""Player position: %s
+		"""Player HP: %s
 		FPS: %s
 		BulletSpawners: %s
 		Bullets Active: %s
 		""" % [
-			str($Player.position),
+			str($Player.hp),
 			str(Engine.get_frames_per_second()),
 			bs_info,
 			str(get_tree().get_nodes_in_group("bullets").size())
