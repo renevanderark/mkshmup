@@ -11,8 +11,7 @@ enum PowerupType {
 var _picked_up = false
 
 func _on_area_entered(area: Area2D) -> void:
-	if not _picked_up:
+	if not _picked_up and area.is_in_group("player"):
 		_picked_up = true
 		queue_free()
-		if area.is_in_group("player"):
-			(area as Player).receive_powerup(powerup_type, boost_amount)
+		(area as Player).receive_powerup(powerup_type, boost_amount)

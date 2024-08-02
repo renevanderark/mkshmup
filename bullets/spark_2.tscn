@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjaa63xxoqxp5"]
+
+[ext_resource type="Texture2D" uid="uid://2wf5c7408w2b" path="res://bullets/images/Spark2.svg" id="1_w7dwe"]
+[ext_resource type="Script" path="res://bullets/spark.gd" id="2_xhkm5"]
+
+[node name="Spark2" type="Sprite2D"]
+texture = ExtResource("1_w7dwe")
+script = ExtResource("2_xhkm5")

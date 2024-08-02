@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://64vkwxuymufw"]
+
+[ext_resource type="Texture2D" uid="uid://bmdpi1iqnysh2" path="res://bullets/images/Spark3.svg" id="1_3e2fo"]
+[ext_resource type="Script" path="res://bullets/spark.gd" id="2_hqpam"]
+
+[node name="Spark3" type="Sprite2D"]
+position = Vector2(-2, -3)
+texture = ExtResource("1_3e2fo")
+script = ExtResource("2_hqpam")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://khqiav7ahjc0"]
 
-[ext_resource type="Texture2D" uid="uid://d1yqkc22pqr3a" path="res://powerups/powerup.svg" id="1_m484i"]
 [ext_resource type="Script" path="res://powerups/powerup.gd" id="1_x87fd"]
+[ext_resource type="Texture2D" uid="uid://d1yqkc22pqr3a" path="res://powerups/images/powerup.svg" id="2_2v5lo"]
 
 [node name="Powerup" type="Area2D"]
 script = ExtResource("1_x87fd")
 
 [node name="PowerupSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_m484i")
+texture = ExtResource("2_2v5lo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

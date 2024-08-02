@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgdoo8tjd17bo"]
 
-[ext_resource type="Texture2D" uid="uid://bv02vngs6uswv" path="res://player/ship.svg" id="1_atw54"]
+[ext_resource type="Texture2D" uid="uid://bv02vngs6uswv" path="res://player/images/ship.svg" id="2_77wsb"]
 [ext_resource type="Script" path="res://player/player.gd" id="2_ip2h1"]
 [ext_resource type="PackedScene" uid="uid://cdf8f7i0gnqgo" path="res://bullets/bullet_spawner.tscn" id="3_tofto"]
 [ext_resource type="PackedScene" uid="uid://b2hxkxhlb6r6k" path="res://bullets/basic_bullet.tscn" id="4_iu4vv"]
@@ -9,7 +9,7 @@
 script = ExtResource("2_ip2h1")
 
 [node name="ShipSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_atw54")
+texture = ExtResource("2_77wsb")
 
 [node name="BulletSpawner" parent="." instance=ExtResource("3_tofto")]
 visible = false
@@ -17,11 +17,27 @@ position = Vector2(-10, 0)
 BulletScene = ExtResource("4_iu4vv")
 bullet_speed = 1510
 
+[node name="BulletSpawner7" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(-25, 0)
+BulletScene = ExtResource("4_iu4vv")
+bullet_speed = 1510
+disabled = true
+unlock_level = 3
+
 [node name="BulletSpawner2" parent="." instance=ExtResource("3_tofto")]
 visible = false
 position = Vector2(10, 0)
 BulletScene = ExtResource("4_iu4vv")
 bullet_speed = 1510
+
+[node name="BulletSpawner8" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(25, 0)
+BulletScene = ExtResource("4_iu4vv")
+bullet_speed = 1510
+disabled = true
+unlock_level = 3
 
 [node name="BulletSpawner3" parent="." instance=ExtResource("3_tofto")]
 visible = false
@@ -32,6 +48,16 @@ spawn_frame_frequency = 8
 bullet_speed = 1000
 disabled = true
 unlock_level = 1
+
+[node name="BulletSpawner10" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(60, -1.19209e-07)
+rotation = 0.0436332
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 4
 
 [node name="BulletSpawner5" parent="." instance=ExtResource("3_tofto")]
 visible = false
@@ -52,6 +78,16 @@ spawn_frame_frequency = 8
 bullet_speed = 1000
 disabled = true
 unlock_level = 1
+
+[node name="BulletSpawner9" parent="." instance=ExtResource("3_tofto")]
+visible = false
+position = Vector2(-60, -1.19209e-07)
+rotation = -0.0436332
+BulletScene = ExtResource("4_iu4vv")
+spawn_frame_frequency = 8
+bullet_speed = 1000
+disabled = true
+unlock_level = 4
 
 [node name="BulletSpawner6" parent="." instance=ExtResource("3_tofto")]
 visible = false

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c651kwsdx6sj3"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_mfdaw"]
+[ext_resource type="Texture2D" uid="uid://028qjsysplx1" path="res://enemies/images/strong_ship_no1.svg" id="2_ggmik"]
+
+[sub_resource type="Curve2D" id="Curve2D_mfy16"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -90, 0, 0, 0, 0, 0, 300)
+}
+point_count = 2
+
+[node name="StrongShipNo1" type="Area2D" groups=["enemies"]]
+position = Vector2(0, 90)
+script = ExtResource("1_mfdaw")
+
+[node name="StrongShipNo1Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ggmik")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(22.3, -30.5, 24.1, -30.5, 52.5, -11.9, 52.5, 32.5, 50, 32.5, 16.5, 12.9, 0.700001, 49.5, -3.5, 49.5, -3.5, 46.9, -17.2, 12.2, -52.5, 32.8, -52.5, -10.9, -27.5, -26.6, -27.5, -27.4, -3.5, -49.4, 1.5, -49.5)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mfy16")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -90)
+rotation = 1.5708
