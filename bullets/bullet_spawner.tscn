@@ -6,6 +6,7 @@
 script = ExtResource("1_30mn4")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = 2
 points = PackedVector2Array(0, 0, 0, -60, 10, -30, -10, -30, 0, -60)
 width = 2.0
 joint_mode = 2

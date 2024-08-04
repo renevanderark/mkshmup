@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvbmsvq1kjm7x"]
+
+[ext_resource type="Texture2D" uid="uid://5nrip6wy37ai" path="res://bullets/images/EnmyBletOutline.svg" id="1_jeiws"]
+[ext_resource type="Script" path="res://bullets/enemy_bullet.gd" id="1_y0oau"]
+[ext_resource type="Texture2D" uid="uid://b04x74kxsvw1y" path="res://bullets/images/EnmyBletFilling.svg" id="2_fmq1l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pb7yd"]
+radius = 15.0
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_y0oau")
+
+[node name="EnmyBletOutline" type="Sprite2D" parent="."]
+texture = ExtResource("1_jeiws")
+
+[node name="EnmyBletFilling" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_fmq1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pb7yd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

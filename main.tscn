@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw6ygfj446v6i"]
+[gd_scene load_steps=9 format=3 uid="uid://dw6ygfj446v6i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1njde"]
 [ext_resource type="PackedScene" uid="uid://bgdoo8tjd17bo" path="res://player/player.tscn" id="2_rjhxv"]
 [ext_resource type="PackedScene" uid="uid://khqiav7ahjc0" path="res://powerups/powerup.tscn" id="3_vbnvw"]
 [ext_resource type="PackedScene" uid="uid://c651kwsdx6sj3" path="res://enemies/strong_ship_no_1.tscn" id="4_v5qer"]
+[ext_resource type="PackedScene" uid="uid://57cwgjythavu" path="res://enemies/small_ship_no_1.tscn" id="5_sr7ge"]
 
 [sub_resource type="Theme" id="Theme_djipc"]
 
@@ -23,7 +24,6 @@ _data = {
 point_count = 3
 
 [node name="Main" type="Panel"]
-clip_contents = true
 custom_minimum_size = Vector2(500, 1000)
 offset_right = 500.0
 offset_bottom = 1000.0
@@ -48,30 +48,6 @@ text = "debug"
 [node name="Player" parent="." instance=ExtResource("2_rjhxv")]
 position = Vector2(250, 900)
 
-[node name="Bullet_speed_Powerup" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(200, 650)
-powerup_type = 0
-boost_amount = 500
-
-[node name="Bullet_firerate_Powerup" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(360, 460)
-
-[node name="Bullet_add_Powerup" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(120, 350)
-powerup_type = 2
-
-[node name="Bullet_add_Powerup2" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(370, 300)
-powerup_type = 2
-
-[node name="Powerup" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(350, 140)
-powerup_type = 2
-
-[node name="Powerup2" parent="." instance=ExtResource("3_vbnvw")]
-position = Vector2(150, 130)
-powerup_type = 2
-
 [node name="StrongShipNo1" parent="." instance=ExtResource("4_v5qer")]
 position = Vector2(650, 400)
 loop_path = true
@@ -83,7 +59,55 @@ curve = SubResource("Curve2D_1mya0")
 position = Vector2(0, 0)
 rotation = 3.14159
 
+[node name="Powerup2" parent="StrongShipNo1" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(-500, -270)
+powerup_type = 2
+
+[node name="Powerup" parent="StrongShipNo1" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(-300, -260)
+powerup_type = 2
+
+[node name="Bullet_firerate_Powerup" parent="StrongShipNo1" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(-290, 60)
+
+[node name="Bullet_speed_Powerup" parent="StrongShipNo1" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(-450, 250)
+powerup_type = 0
+boost_amount = 500
+
 [node name="StrongShipNo2" parent="." instance=ExtResource("4_v5qer")]
 position = Vector2(250, 40)
 
+[node name="BulletSpawner5" parent="StrongShipNo2" index="3"]
+spawn_frame_frequency = 8
+rotation_speed = 0.0
+bullet_scale = 2.0
+
+[node name="BulletSpawner13" parent="StrongShipNo2" index="4"]
+spawn_frame_frequency = 7
+rotation_speed = -2.0
+
+[node name="Bullet_add_Powerup2" parent="StrongShipNo2" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(120, 260)
+powerup_type = 2
+
+[node name="Bullet_add_Powerup" parent="StrongShipNo2" instance=ExtResource("3_vbnvw")]
+visible = false
+position = Vector2(-130, 310)
+powerup_type = 2
+
+[node name="SmallShipNo1" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(450, -70)
+hp = 25
+
+[node name="SmallShipNo2" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(50, -70)
+hp = 25
+
 [editable path="StrongShipNo1"]
+[editable path="StrongShipNo2"]

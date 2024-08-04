@@ -126,8 +126,10 @@ enabled = false
 position = Vector2(0, -10)
 
 [node name="CoreSprite" type="AnimatedSprite2D" parent="PlayerCore"]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_1al7i")
 frame_progress = 0.915554
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerCore"]
+z_index = 11
 polygon = PackedVector2Array(0, -4, 4, 0, 0, 4, -4, 0)

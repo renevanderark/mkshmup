@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://2f632mwoocep"]
+
+[ext_resource type="Script" path="res://bullets/enemy_bullet.gd" id="1_o4u50"]
+[ext_resource type="Texture2D" uid="uid://b8w0oyamottnm" path="res://bullets/images/Pellet_bullet2.svg" id="2_1dhn8"]
+[ext_resource type="Texture2D" uid="uid://cwwp3k5ipymhw" path="res://bullets/images/Pellet_bullet.svg" id="3_bgug7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etpfk"]
+radius = 6.0
+height = 35.0
+
+[node name="PelletBullet" type="Area2D"]
+script = ExtResource("1_o4u50")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.38419e-07, 5.96046e-07)
+scale = Vector2(1.4, 2.3)
+
+[node name="PelletBullet2" type="Sprite2D" parent="."]
+rotation = -1.57079
+texture = ExtResource("2_1dhn8")
+
+[node name="PelletBullet" type="Sprite2D" parent="."]
+z_index = 1
+rotation = -1.57079
+texture = ExtResource("3_bgug7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_etpfk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

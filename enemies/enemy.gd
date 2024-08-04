@@ -17,8 +17,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _explode():
+	for powerup : PowerUp in find_children("*", "PowerUp"):
+		powerup.reparent(get_tree().root)
+		powerup.position = position + Vector2(randf_range(-50, 50), -10 + randf_range(-50, 50))
+		powerup.show()
 	queue_free()
 
 
 func _ready() -> void:
+	add_to_group("enemies")
 	_start_pos = position
+	for powerup : PowerUp in find_children("*", "PowerUp"):
+		powerup.hide()
