@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://tj6o7pvtfrxx"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_2ylnx"]
+[ext_resource type="Texture2D" uid="uid://028qjsysplx1" path="res://enemies/images/strong_ship_no1.svg" id="2_gh1xp"]
+[ext_resource type="PackedScene" uid="uid://cdf8f7i0gnqgo" path="res://bullets/bullet_spawner.tscn" id="3_hjcjk"]
+[ext_resource type="PackedScene" uid="uid://2f632mwoocep" path="res://bullets/pellet_bullet.tscn" id="4_4i6rm"]
+[ext_resource type="PackedScene" uid="uid://cvbmsvq1kjm7x" path="res://bullets/enemy_bullet.tscn" id="5_suf15"]
+
+[sub_resource type="Curve2D" id="Curve2D_mfy16"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -90, 0, 0, 0, 0, 0, 405)
+}
+point_count = 2
+
+[node name="StrongShipNo1" type="Area2D" groups=["enemies"]]
+position = Vector2(0, 90)
+scale = Vector2(2, 2)
+script = ExtResource("1_2ylnx")
+wave_number = 2
+hp = 500
+
+[node name="StrongShipNo1Sprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_gh1xp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(22.3, -30.5, 24.1, -30.5, 52.5, -11.9, 52.5, 32.5, 50, 32.5, 16.5, 12.9, 0.700001, 49.5, -3.5, 49.5, -3.5, 46.9, -17.2, 12.2, -52.5, 32.8, -52.5, -10.9, -27.5, -26.6, -27.5, -27.4, -3.5, -49.4, 1.5, -49.5)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mfy16")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -90)
+rotation = 1.5708
+
+[node name="BulletSpawner5" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = 3.14159
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner6" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = 2.35619
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner7" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = 1.5708
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner8" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = 0.785398
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner9" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner10" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = -0.785398
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner11" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = -1.5708
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner12" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(0, -130)
+rotation = -2.35619
+BulletScene = ExtResource("5_suf15")
+spawn_frame_frequency = 150
+bullet_speed = 300
+rotation_speed = 0.1
+bullet_scale = 7.0
+
+[node name="BulletSpawner15" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(-50, -90)
+rotation = 3.14159
+BulletScene = ExtResource("4_4i6rm")
+spawn_frame_frequency = 5
+bullet_speed = 300
+rotation_speed = 2.0
+bullet_scale = 2.0
+
+[node name="BulletSpawner16" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(-50, -90)
+rotation = 3.14159
+BulletScene = ExtResource("4_4i6rm")
+spawn_frame_frequency = 5
+bullet_speed = 450
+rotation_speed = 2.0
+bullet_scale = 2.0
+
+[node name="BulletSpawner13" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(50, -90)
+rotation = 3.14159
+BulletScene = ExtResource("4_4i6rm")
+spawn_frame_frequency = 5
+bullet_speed = 300
+rotation_speed = -2.0
+bullet_scale = 2.0
+
+[node name="BulletSpawner14" parent="." instance=ExtResource("3_hjcjk")]
+position = Vector2(50, -90)
+rotation = 3.14159
+BulletScene = ExtResource("4_4i6rm")
+spawn_frame_frequency = 5
+bullet_speed = 450
+rotation_speed = -2.0
+bullet_scale = 2.0
