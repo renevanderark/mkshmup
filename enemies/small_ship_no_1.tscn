@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://57cwgjythavu"]
+[gd_scene load_steps=6 format=3 uid="uid://57cwgjythavu"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_4a67a"]
 [ext_resource type="Texture2D" uid="uid://028qjsysplx1" path="res://enemies/images/strong_ship_no1.svg" id="2_7hv4h"]
 [ext_resource type="PackedScene" uid="uid://cdf8f7i0gnqgo" path="res://bullets/bullet_spawner.tscn" id="3_8wcns"]
 [ext_resource type="PackedScene" uid="uid://2f632mwoocep" path="res://bullets/pellet_bullet.tscn" id="4_ird2o"]
-[ext_resource type="PackedScene" uid="uid://cvbmsvq1kjm7x" path="res://bullets/enemy_bullet.tscn" id="5_4d6yr"]
 
 [sub_resource type="Curve2D" id="Curve2D_asyo8"]
 _data = {
@@ -36,40 +35,48 @@ curve = SubResource("Curve2D_asyo8")
 rotation = 1.5708
 
 [node name="BulletSpawner7" parent="." instance=ExtResource("3_8wcns")]
+visible = false
 position = Vector2(-1.14441e-05, -4.76837e-07)
-rotation = 3.05433
+rotation = 2.87979
 BulletScene = ExtResource("4_ird2o")
-spawn_frame_frequency = 20
+spawn_frame_frequency = 60
 bullet_speed = 300
-rotation_speed = 1.0
 
 [node name="BulletSpawner8" parent="." instance=ExtResource("3_8wcns")]
-rotation = 3.22886
+visible = false
+rotation = 3.40339
 BulletScene = ExtResource("4_ird2o")
-spawn_frame_frequency = 20
+spawn_frame_frequency = 60
 bullet_speed = 300
-rotation_speed = -1.0
 
 [node name="BulletSpawner11" parent="." instance=ExtResource("3_8wcns")]
+visible = false
 position = Vector2(-1.14441e-05, -4.76837e-07)
-rotation = 3.05433
+rotation = 2.87979
 BulletScene = ExtResource("4_ird2o")
-spawn_frame_frequency = 20
+spawn_frame_frequency = 60
 bullet_speed = 320
-rotation_speed = 1.0
 bullet_scale = 1.5
 
 [node name="BulletSpawner12" parent="." instance=ExtResource("3_8wcns")]
-rotation = 3.22886
+visible = false
+rotation = 3.40339
 BulletScene = ExtResource("4_ird2o")
-spawn_frame_frequency = 20
+spawn_frame_frequency = 60
 bullet_speed = 320
-rotation_speed = -1.0
 bullet_scale = 1.5
 
 [node name="BulletSpawner13" parent="." instance=ExtResource("3_8wcns")]
+visible = false
 rotation = 3.14159
-BulletScene = ExtResource("5_4d6yr")
-spawn_frame_frequency = 200
-bullet_speed = 150
-bullet_scale = 4.0
+BulletScene = ExtResource("4_ird2o")
+spawn_frame_frequency = 60
+bullet_speed = 300
+
+[node name="BulletSpawner14" parent="." instance=ExtResource("3_8wcns")]
+visible = false
+rotation = 3.14159
+BulletScene = ExtResource("4_ird2o")
+spawn_frame_frequency = 60
+bullet_speed = 320
+bullet_scale = 1.5

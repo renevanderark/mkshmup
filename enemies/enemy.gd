@@ -5,7 +5,10 @@ extends Area2D
 @export var wave_number : int = 1
 @export_range(50, 2500) var speed : int = 150
 @export var hp : int = 100
-@export var loop_path : bool = false
+@export var loop_path := false
+@export var despawn_after_path_complete := false
+
+
 var _start_pos : Vector2 = Vector2.ZERO
 var _started := false
 
@@ -17,6 +20,8 @@ func _physics_process(delta: float) -> void:
 		_explode()
 	if $Path2D/PathFollow2D.progress_ratio < .99:
 		$Path2D/PathFollow2D.progress += speed * delta
+	elif despawn_after_path_complete:
+		queue_free()
 	elif loop_path:
 		$Path2D/PathFollow2D.progress_ratio = 0
 	position = _start_pos + $Path2D/PathFollow2D.position

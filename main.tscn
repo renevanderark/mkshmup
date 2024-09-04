@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dw6ygfj446v6i"]
+[gd_scene load_steps=22 format=3 uid="uid://dw6ygfj446v6i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1njde"]
 [ext_resource type="PackedScene" uid="uid://bvvwy3fba8le4" path="res://backgrounds/background.tscn" id="2_3rcvx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://57cwgjythavu" path="res://enemies/small_ship_no_1.tscn" id="5_sr7ge"]
 [ext_resource type="Texture2D" uid="uid://b1n7hy12xdkcx" path="res://backgrounds/stripes.png" id="6_jcobp"]
 [ext_resource type="PackedScene" uid="uid://tj6o7pvtfrxx" path="res://enemies/strong_ship_no_2.tscn" id="8_itvt7"]
+[ext_resource type="PackedScene" uid="uid://c0obhy767d0no" path="res://enemies/boss_phase_2.tscn" id="9_5xwxc"]
 
 [sub_resource type="Theme" id="Theme_djipc"]
 
@@ -20,11 +21,69 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="Curve2D" id="Curve2D_4w1mk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1720, -40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vgyc2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1476, -42)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ble2y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1234, -40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_mqq3s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1220, -40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8kwry"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 1480, -48)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_2b7b2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1722, -38)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_6nji7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1280, -40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7jlff"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1520, -40)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ahpsn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1762, -38)
+}
+point_count = 2
+
 [node name="Main" type="Panel"]
 custom_minimum_size = Vector2(500, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_djipc")
@@ -57,7 +116,7 @@ texture = ExtResource("6_jcobp")
 centered = false
 
 [node name="Stripes2" type="Sprite2D" parent="Background2"]
-position = Vector2(-120, 0)
+position = Vector2(-122, 0)
 texture = ExtResource("6_jcobp")
 centered = false
 
@@ -186,10 +245,187 @@ hp = 25
 position = Vector2(50, -70)
 hp = 25
 
-[node name="StrongShipNo2" parent="." instance=ExtResource("8_itvt7")]
+[node name="bos" parent="." instance=ExtResource("8_itvt7")]
 position = Vector2(250, -100)
+scale = Vector2(1.25, 1.25)
+wave_number = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(253, 500)
 
+[node name="small4" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(812, 139)
+wave_number = 2
+speed = 100
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small4" index="2"]
+curve = SubResource("Curve2D_4w1mk")
+
+[node name="PathFollow2D" parent="small4/Path2D" index="0"]
+rotation = -3.11834
+
+[node name="small5" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(692, 139)
+wave_number = 2
+speed = 200
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small5" index="2"]
+curve = SubResource("Curve2D_vgyc2")
+
+[node name="PathFollow2D" parent="small5/Path2D" index="0"]
+rotation = -3.11315
+
+[node name="small6" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(572, 139)
+wave_number = 2
+speed = 300
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small6" index="2"]
+position = Vector2(-2, -2)
+curve = SubResource("Curve2D_ble2y")
+
+[node name="PathFollow2D" parent="small6/Path2D" index="0"]
+rotation = -3.10919
+
+[node name="small7" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(812, 229)
+wave_number = 2
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small7" index="2"]
+curve = SubResource("Curve2D_4w1mk")
+
+[node name="PathFollow2D" parent="small7/Path2D" index="0"]
+rotation = -3.11834
+
+[node name="small8" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(692, 229)
+wave_number = 2
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small8" index="2"]
+curve = SubResource("Curve2D_vgyc2")
+
+[node name="PathFollow2D" parent="small8/Path2D" index="0"]
+rotation = -3.11315
+
+[node name="small9" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(572, 229)
+wave_number = 2
+speed = 200
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="small9" index="2"]
+position = Vector2(-2, -2)
+curve = SubResource("Curve2D_ble2y")
+
+[node name="PathFollow2D" parent="small9/Path2D" index="0"]
+rotation = -3.10919
+
+[node name="mini" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-68, 159)
+wave_number = 3
+speed = 100
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini" index="2"]
+curve = SubResource("Curve2D_mqq3s")
+
+[node name="PathFollow2D" parent="mini/Path2D" index="0"]
+rotation = -0.0327751
+
+[node name="mini2" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-188, 163)
+wave_number = 3
+speed = 200
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini2" index="2"]
+curve = SubResource("Curve2D_8kwry")
+
+[node name="PathFollow2D" parent="mini2/Path2D" index="0"]
+position = Vector2(0, -8)
+rotation = -0.0270204
+
+[node name="mini3" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-308, 159)
+wave_number = 3
+speed = 250
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini3" index="2"]
+position = Vector2(-2, -2)
+curve = SubResource("Curve2D_2b7b2")
+
+[node name="PathFollow2D" parent="mini3/Path2D" index="0"]
+rotation = -0.0220638
+
+[node name="mini4" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-68, 249)
+wave_number = 3
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini4" index="2"]
+curve = SubResource("Curve2D_6nji7")
+
+[node name="PathFollow2D" parent="mini4/Path2D" index="0"]
+rotation = -0.0312398
+
+[node name="mini5" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-188, 249)
+wave_number = 3
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini5" index="2"]
+curve = SubResource("Curve2D_7jlff")
+
+[node name="PathFollow2D" parent="mini5/Path2D" index="0"]
+rotation = -0.0263097
+
+[node name="mini6" parent="." instance=ExtResource("5_sr7ge")]
+position = Vector2(-308, 249)
+wave_number = 3
+speed = 200
+hp = 15
+despawn_after_path_complete = true
+
+[node name="Path2D" parent="mini6" index="2"]
+position = Vector2(-2, -2)
+curve = SubResource("Curve2D_ahpsn")
+
+[node name="PathFollow2D" parent="mini6/Path2D" index="0"]
+rotation = -0.0215631
+
+[node name="BossPhase2" parent="." instance=ExtResource("9_5xwxc")]
+position = Vector2(252, -101)
+scale = Vector2(1.25, 1.25)
+wave_number = 5
+hp = 1000
+
 [editable path="StrongShipNo1"]
+[editable path="small4"]
+[editable path="small5"]
+[editable path="small6"]
+[editable path="small7"]
+[editable path="small8"]
+[editable path="small9"]
+[editable path="mini"]
+[editable path="mini2"]
+[editable path="mini3"]
+[editable path="mini4"]
+[editable path="mini5"]
+[editable path="mini6"]
