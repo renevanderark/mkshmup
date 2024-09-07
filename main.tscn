@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dw6ygfj446v6i"]
+[gd_scene load_steps=24 format=3 uid="uid://dw6ygfj446v6i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1njde"]
 [ext_resource type="PackedScene" uid="uid://bvvwy3fba8le4" path="res://backgrounds/background.tscn" id="2_3rcvx"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://khqiav7ahjc0" path="res://powerups/powerup.tscn" id="3_vbnvw"]
 [ext_resource type="PackedScene" uid="uid://c651kwsdx6sj3" path="res://enemies/strong_ship_no_1.tscn" id="4_v5qer"]
 [ext_resource type="PackedScene" uid="uid://57cwgjythavu" path="res://enemies/small_ship_no_1.tscn" id="5_sr7ge"]
-[ext_resource type="Texture2D" uid="uid://b1n7hy12xdkcx" path="res://backgrounds/stripes.png" id="6_jcobp"]
+[ext_resource type="Texture2D" uid="uid://dyw6kf1mg6t6a" path="res://backgrounds/stripes.png" id="6_jcobp"]
 [ext_resource type="PackedScene" uid="uid://tj6o7pvtfrxx" path="res://enemies/strong_ship_no_2.tscn" id="8_itvt7"]
 [ext_resource type="PackedScene" uid="uid://c0obhy767d0no" path="res://enemies/boss_phase_2.tscn" id="9_5xwxc"]
+[ext_resource type="PackedScene" uid="uid://dr3epiymp4twn" path="res://enemies/boss_phase_3.tscn" id="10_sagmu"]
+[ext_resource type="AudioStream" uid="uid://b4kam1dl0erbp" path="res://Audio/music/level_1.wav" id="11_88dvl"]
 
 [sub_resource type="Theme" id="Theme_djipc"]
 
@@ -80,9 +82,9 @@ custom_minimum_size = Vector2(500, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
+offset_left = -3.0
 offset_top = 1.0
-offset_right = -2.0
+offset_right = -3.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -415,6 +417,16 @@ position = Vector2(252, -101)
 scale = Vector2(1.25, 1.25)
 wave_number = 5
 hp = 1000
+
+[node name="bossphase3" parent="." instance=ExtResource("10_sagmu")]
+position = Vector2(250, -97)
+scale = Vector2(1.25, 1.25)
+wave_number = 6
+hp = 1000
+
+[node name="Level1AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_88dvl")
+autoplay = true
 
 [editable path="StrongShipNo1"]
 [editable path="small4"]

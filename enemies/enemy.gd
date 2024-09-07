@@ -37,6 +37,9 @@ func _explode():
 
 func _ready() -> void:
 	add_to_group("enemies")
+	for bs : BulletSpawner in find_children("*", "BulletSpawner"):
+		bs.disabled = true
+
 	_start_pos = position
 	for powerup : PowerUp in find_children("*", "PowerUp"):
 		powerup.hide()
@@ -45,3 +48,5 @@ func _ready() -> void:
 func start_if_in_wave(wave_num : int):
 	if wave_number == wave_num:
 		_started = true
+		for bs : BulletSpawner in find_children("*", "BulletSpawner"):
+			bs.disabled = false
